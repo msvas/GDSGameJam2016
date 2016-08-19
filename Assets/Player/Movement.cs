@@ -12,6 +12,12 @@ public class Movement : MonoBehaviour {
 	[SerializeField]
 	private string JumpInput = "Jump";
 
+	[SerializeField]
+	private float speed = 10.0f;
+
+	[SerializeField]
+	private float jumpImpulse = 50.0f;
+
 	private Player player;
 	private Rigidbody rb;
 
@@ -32,12 +38,12 @@ public class Movement : MonoBehaviour {
 		if (player.isGrounded) {
 
 			if (jump) {
-
+				Jump();
 			}
 
-			if (horizontal != 0)
+			if (horizontal < 0)
 				MoveClockwise(horizontal);
-			else if (vertical != 0)
+			else if (horizontal > 0)
 				MoveCounterClockwise(vertical);
 			
 		}
@@ -49,17 +55,24 @@ public class Movement : MonoBehaviour {
 	}
 
 	void MoveClockwise (float input) {
-
+		Vector3 direction = (Vector3.Cross(Vector3.forward, player.transform.up)).normalized;
+		transform.position += direction * speed * Time.deltaTime;
 	}
 
 	void MoveCounterClockwise (float input) {
-
+		Vector3 direction = (Vector3.Cross(player.transform.up, Vector3.forward)).normalized;
+		transform.position += direction * speed * Time.deltaTime;
 	}
 
 	void MoveInSpace (Vector2 input) {
 		Vector2 normalized = input.normalized;
 		Vector3 movement = new Vector3(normalized.x, normalized.y, 0.0f);
 
-		rb.AddForce(movement);
+		rb.AddForce(movement * speed * 10.0f * Time.deltaTime);
+	}
+
+	void Jump () {
+		rb.AddForce(player.transform.up * jumpImpulse * Time.deltaTime, ForceMode.Impulse);
+		Debug.Log("JUMP");
 	}
 }

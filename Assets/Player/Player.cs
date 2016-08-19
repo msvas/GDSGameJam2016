@@ -19,11 +19,7 @@ public class Player : MonoBehaviour {
 	
 	void Update () {
 		if (grounded) {
-			Vector3 up = (transform.position - planetCenter).normalized;
-			//float angle = Vector3.Angle(transform.up, up);
-			transform.up = up;
-
-			//transform.Rotate(new Vector3(0.0f, 0.0f, angle));
+			transform.up = (transform.position - planetCenter).normalized;
 		}
 	}
 
