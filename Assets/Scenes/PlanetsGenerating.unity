@@ -100,7 +100,7 @@ GameObject:
   - 4: {fileID: 228056486}
   - 114: {fileID: 228056485}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Generator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,9 +119,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSizeX: 200
   maxSizeY: 200
-  maxRadius: 5
+  maxRadius: 1
   planetsNumber: 10
-  spaceBetweenPlanets: 2
+  spaceBetweenPlanets: 5
 --- !u!4 &228056486
 Transform:
   m_ObjectHideFlags: 0

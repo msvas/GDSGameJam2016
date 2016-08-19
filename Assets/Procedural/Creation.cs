@@ -33,6 +33,7 @@ public class Creation : MonoBehaviour {
             }
             planets.Add(new PlanetInfo(coordinates, radius));
         }
+        CreatePlanets();
         //DebugPlanets();
     }
 	
@@ -57,6 +58,13 @@ public class Creation : MonoBehaviour {
             }
         }
         return collides;
+    }
+
+    private void CreatePlanets() {
+        foreach (PlanetInfo planet in planets) {
+            GameObject newPlanet = (GameObject)Instantiate(Resources.Load("PlanetBase"));
+            newPlanet.transform.position = planet.coordinates;
+        }
     }
 
     private void DebugPlanets() {
