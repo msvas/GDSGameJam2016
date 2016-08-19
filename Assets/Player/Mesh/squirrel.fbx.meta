@@ -79,6 +79,37 @@ ModelImporter:
     4300010: Arms_MeshPart1
     4300012: Body
     4300014: Eyes
+    7400000: Armature|ArmatureAction.001
+    7400002: Armature|ArmsAction
+    7400004: Armature|BodyAction
+    7400006: Armature|CapaceteAction
+    7400008: Armature|CubeAction
+    7400010: Armature|EyesAction
+    7400012: Capacete|ArmsAction
+    7400014: Capacete|BodyAction
+    7400016: Capacete|CapaceteAction
+    7400018: Capacete|CubeAction
+    7400020: Capacete|EyesAction
+    7400022: Cube|ArmsAction
+    7400024: Cube|BodyAction
+    7400026: Cube|CapaceteAction
+    7400028: Cube|CubeAction
+    7400030: Cube|EyesAction
+    7400032: Arms|ArmsAction
+    7400034: Arms|BodyAction
+    7400036: Arms|CapaceteAction
+    7400038: Arms|CubeAction
+    7400040: Arms|EyesAction
+    7400042: Body|ArmsAction
+    7400044: Body|BodyAction
+    7400046: Body|CapaceteAction
+    7400048: Body|CubeAction
+    7400050: Body|EyesAction
+    7400052: Eyes|ArmsAction
+    7400054: Eyes|BodyAction
+    7400056: Eyes|CapaceteAction
+    7400058: Eyes|CubeAction
+    7400060: Eyes|EyesAction
     9500000: //RootNode
     13700000: Legs
     13700002: Tail

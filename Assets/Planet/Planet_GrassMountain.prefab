@@ -40,7 +40,7 @@ GameObject:
   - 23: {fileID: 23000012793341364}
   - 114: {fileID: 114000010667748994}
   - 135: {fileID: 135000010511433646}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Planet_GrassMountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ Transform:
   m_GameObject: {fileID: 1000011382759400}
   m_LocalRotation: {x: 0.00000008940697, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011076102770}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc069647ed227a7448271c894c813762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityIntensity: 0
+  gravityIntensity: 10
   gravityScale: 10
 --- !u!135 &135000010467143232
 SphereCollider:

@@ -72,7 +72,8 @@ public class Movement : MonoBehaviour {
 	}
 
 	void Jump () {
-		rb.AddForce(player.transform.up * jumpImpulse * Time.deltaTime, ForceMode.Impulse);
-		Debug.Log("JUMP");
+		rb.AddForce(
+			(player.transform.up + rb.velocity).normalized * jumpImpulse * Time.deltaTime,
+			ForceMode.Impulse);
 	}
 }
