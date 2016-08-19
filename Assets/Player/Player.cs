@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	[SerializeField]
 	private bool grounded;
 
 	public bool isGrounded {
@@ -19,9 +20,10 @@ public class Player : MonoBehaviour {
 	void Update () {
 		if (grounded) {
 			Vector3 up = (transform.position - planetCenter).normalized;
-			float angle = Vector3.Angle(transform.up, up);
+			//float angle = Vector3.Angle(transform.up, up);
+			transform.up = up;
 
-			transform.Rotate(new Vector3(0.0f, 0.0f, angle));
+			//transform.Rotate(new Vector3(0.0f, 0.0f, angle));
 		}
 	}
 
@@ -32,7 +34,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerLeave(Collider other) {
+	void OnTriggerExit(Collider other) {
 		if (other.gameObject.layer == LayerMask.NameToLayer("Planet")) {
 			grounded = false;
 			planetCenter = Vector3.zero;

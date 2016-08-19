@@ -6,6 +6,8 @@ public class Planet : MonoBehaviour {
     [Range(-10, 10)]
     public int gravityIntensity;
 
+	public int gravityScale = 10;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -17,9 +19,9 @@ public class Planet : MonoBehaviour {
 	}
 
     void OnTriggerStay(Collider other) {
-        if (!other.gameObject.GetComponent<Player>().isGrounded) {
-            Vector3 direction = Vector3.Normalize(other.transform.position - transform.position);
-            other.gameObject.GetComponent<Rigidbody>().AddForce(direction * gravityIntensity * Time.deltaTime);
+        if (other.CompareTag("Player") && !other.gameObject.GetComponent<Player>().isGrounded) {
+            Vector3 direction = Vector3.Normalize(transform.position - other.transform.position);
+            other.gameObject.GetComponent<Rigidbody>().AddForce(direction * gravityIntensity * gravityScale * Time.deltaTime);
         }
     }
 }
