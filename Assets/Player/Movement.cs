@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour {
 		float vertical		= Input.GetAxis(VerticalInput);
 		bool jump			= Input.GetAxis(JumpInput) > 0;
 
-		if (player.isGrounded()) {
+		if (player.isGrounded) {
 
 			if (jump) {
 
