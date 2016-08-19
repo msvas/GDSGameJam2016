@@ -17,7 +17,9 @@ public class Planet : MonoBehaviour {
 	}
 
     void OnTriggerStay(Collider other) {
-        Vector3 direction = Vector3.Normalize(other.transform.position - transform.position);
-        other.gameObject.GetComponent<Rigidbody>().AddForce(direction * gravityIntensity * Time.deltaTime);
+        if (!other.gameObject.GetComponent<Player>.isGrounded()) {
+            Vector3 direction = Vector3.Normalize(other.transform.position - transform.position);
+            other.gameObject.GetComponent<Rigidbody>().AddForce(direction * gravityIntensity * Time.deltaTime);
+        }
     }
 }
