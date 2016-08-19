@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSizeX: 200
   maxSizeY: 200
-  maxRadius: 1
+  maxRadius: 1.5
   planetsNumber: 10
   spaceBetweenPlanets: 5
 --- !u!4 &228056486
