@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class PlanetInfo {
     public Vector3 coordinates;
-    public int radius;
+    public float radius;
 
-    public PlanetInfo(Vector3 c, int r) {
+    public PlanetInfo(Vector3 c, float r) {
         this.coordinates = c;
         this.radius = r;
     }
@@ -15,7 +15,8 @@ public class PlanetInfo {
 public class Creation : MonoBehaviour {
 
     public int maxSizeX, maxSizeY;
-    public int maxRadius;
+    [Range(0.5f, 1.5f)]
+    public float maxRadius;
     public int planetsNumber;
     public int spaceBetweenPlanets;
 
@@ -26,7 +27,7 @@ public class Creation : MonoBehaviour {
         planets = new List<PlanetInfo>();
 
         for (int i = 0; i < planetsNumber; i++) {
-            int radius = Random.Range(1, maxRadius);
+            float radius = Random.Range(0.5f, maxRadius);
             Vector3 coordinates = RandomCoordinates();
             while (PlanetsCollide(coordinates, radius)) {
                 coordinates = RandomCoordinates();
@@ -46,11 +47,11 @@ public class Creation : MonoBehaviour {
             return new Vector3(Random.Range(0, maxSizeX), Random.Range(0, maxSizeY), 0f);
     }
 
-    private bool PlanetsCollide(Vector3 checkedCoord, int radius) {
+    private bool PlanetsCollide(Vector3 checkedCoord, float radius) {
         bool collides = false;
         foreach(PlanetInfo planet in planets) {
             float distance = Vector3.Distance(planet.coordinates, checkedCoord);
-            float minPossible = (planet.radius + radius + spaceBetweenPlanets);
+            float minPossible = ((planet.radius * 10) + (radius * 10) + spaceBetweenPlanets);
             //Debug.Log(distance);
             //Debug.Log(minPossible);
             if (distance < minPossible) {
@@ -64,6 +65,9 @@ public class Creation : MonoBehaviour {
         foreach (PlanetInfo planet in planets) {
             GameObject newPlanet = (GameObject)Instantiate(Resources.Load("PlanetBase"));
             newPlanet.transform.position = planet.coordinates;
+            float newScale = (10f * planet.radius) / 0.5f;
+            Debug.Log(planet.radius);
+            newPlanet.transform.localScale = new Vector3(newScale, newScale, newScale);
         }
     }
 
