@@ -102,7 +102,7 @@ GameObject:
   - 135: {fileID: 1211078069}
   - 23: {fileID: 1211078068}
   - 114: {fileID: 1211078072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ Transform:
   m_GameObject: {fileID: 1211078067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1613862467}
@@ -200,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1352373886
 AudioListener:
   m_ObjectHideFlags: 0
@@ -310,7 +310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc069647ed227a7448271c894c813762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityIntensity: 0
+  gravityIntensity: 10
+  gravityScale: 10
 --- !u!135 &1613862469
 SphereCollider:
   m_ObjectHideFlags: 0

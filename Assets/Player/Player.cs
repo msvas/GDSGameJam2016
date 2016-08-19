@@ -3,16 +3,48 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	[SerializeField]
 	private bool grounded;
 
-	public bool isGrounded() { return grounded; }
-	public void setGrounded (bool grounded) { this.grounded = grounded; }
+	public bool isGrounded {
+		get { return grounded; }
+		set { grounded = value; }
+	}
 
-	void Start () {
+	private Vector3 planetCenter;
 	
+	void Start () {
+		
 	}
 	
 	void Update () {
-	
+		if (grounded) {
+			Vector3 up = (transform.position - planetCenter).normalized;
+			//float angle = Vector3.Angle(transform.up, up);
+			transform.up = up;
+
+			//transform.Rotate(new Vector3(0.0f, 0.0f, angle));
+		}
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.gameObject.layer == LayerMask.NameToLayer("Planet")) {
+			grounded = true;
+			planetCenter = other.transform.position;
+		}
+	}
+
+	void OnTriggerExit(Collider other) {
+		if (other.gameObject.layer == LayerMask.NameToLayer("Planet")) {
+			grounded = false;
+			planetCenter = Vector3.zero;
+		}
+	}
+
+	/// <summary>
+	/// Return the center of the planet the player is standing on
+	/// </summary>
+	Vector3 GetPlanetCenter() {
+		return planetCenter;
 	}
 }
