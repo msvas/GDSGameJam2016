@@ -4,7 +4,7 @@ using System.Collections;
 public class Planet : MonoBehaviour {
 
     [Range(-10, 10)]
-    public int gravity;
+    public int gravityIntensity;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,7 @@ public class Planet : MonoBehaviour {
 	}
 
     void OnTriggerStay(Collider other) {
-        float direction = Vector3.Normalize(Vector3.Distance(other.transform.position, transform.position));
-        other.gameObject.GetComponent<Rigidbody>().AddForce(Direction.TransformDirection(distance * Forward_Speed * Time.deltaTime));
+        Vector3 direction = Vector3.Normalize(other.transform.position - transform.position);
+        other.gameObject.GetComponent<Rigidbody>().AddForce(direction * gravityIntensity * Time.deltaTime);
     }
 }
