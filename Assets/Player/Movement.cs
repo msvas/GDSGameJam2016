@@ -29,6 +29,9 @@ public class Movement : MonoBehaviour {
 	[SerializeField][Tooltip("Maximum distance between players")]
 	private float maxDistance;
 
+	[SerializeField]
+	private float maxVelocity = 100;
+
 	void Start () {
 		player	= GetComponent<Player>();
 		rb		= GetComponent<Rigidbody>();
@@ -61,6 +64,10 @@ public class Movement : MonoBehaviour {
 			}
 			else {
 				rb.velocity *= friction;
+			}
+
+			if (rb.velocity.magnitude > maxVelocity) {
+				rb.velocity = maxVelocity * rb.velocity.normalized;
 			}
 
 			if ((otherPlayer.position - transform.position).magnitude > maxDistance) {
