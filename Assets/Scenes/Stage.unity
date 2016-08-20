@@ -120,6 +120,7 @@ MonoBehaviour:
   maxSizeX: 400
   maxSizeY: 100
   maxRadius: 1.5
+  itemChance: 0.6
   planetsNumber: 20
   spaceBetweenPlanets: 10
 --- !u!4 &474273008

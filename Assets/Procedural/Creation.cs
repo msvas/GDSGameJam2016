@@ -17,6 +17,8 @@ public class Creation : MonoBehaviour {
     public int maxSizeX, maxSizeY;
     [Range(0.5f, 1.5f)]
     public float maxRadius;
+    [Range(0f, 1f)]
+    public float itemChance;
     public int planetsNumber;
     public int spaceBetweenPlanets;
 
@@ -66,8 +68,14 @@ public class Creation : MonoBehaviour {
             GameObject newPlanet = (GameObject)Instantiate(Resources.Load("PlanetBase"));
             newPlanet.transform.position = planet.coordinates;
             float newScale = (10f * planet.radius) / 0.5f;
-            Debug.Log(planet.radius);
+            //Debug.Log(planet.radius);
             newPlanet.transform.localScale = new Vector3(newScale, newScale, newScale);
+            if(Random.Range(0, 1.0f) < itemChance) {
+                float radius = 0.5f * newPlanet.transform.localScale.x;
+                GameObject newNut = (GameObject)Instantiate(Resources.Load("NutBase"));
+                newNut.transform.parent = newPlanet.transform;
+                newNut.transform.position = new Vector3(newPlanet.transform.position.x + (1.2f * radius), newPlanet.transform.position.y, newPlanet.transform.position.z);
+            }
         }
     }
 

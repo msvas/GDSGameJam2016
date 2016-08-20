@@ -122,7 +122,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd7024e064d4d39458d16d58f0af1cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!114 &114000013787495066
+=======
+  gravityIntensity: 10
+  gravityScale: 10
+--- !u!114 &114000013291374378
+>>>>>>> Items
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
