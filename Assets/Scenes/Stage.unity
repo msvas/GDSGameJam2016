@@ -391,6 +391,8 @@ MonoBehaviour:
   speed: 10
   jumpImpulse: 70
   friction: 0.99
+  otherPlayer: {fileID: 1562327398}
+  maxDistance: 100
 --- !u!114 &157092105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +547,8 @@ MonoBehaviour:
   speed: 10
   jumpImpulse: 70
   friction: 0.99
+  otherPlayer: {fileID: 1868355366}
+  maxDistance: 100
 --- !u!114 &186005812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,7 +857,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &511114320
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +889,7 @@ Transform:
   - {fileID: 1459463297}
   - {fileID: 113788528}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &523503347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,7 +1385,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013835269032, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1000010595820442, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_Name
@@ -1481,7 +1485,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &899871838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,7 +1593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013835269032, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1000010595820442, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_Name
@@ -1635,7 +1639,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013835269032, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37353824966b48649866ffb3391ad468, type: 2}
@@ -1734,7 +1738,7 @@ Transform:
   m_Children:
   - {fileID: 1655573286}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!114 &1303666644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2218,7 +2222,7 @@ Transform:
   m_Children:
   - {fileID: 1766826086}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 15
 --- !u!1 &1566469067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,7 +2252,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!114 &1566469069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2631,7 +2635,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013835269032, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1000010595820442, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_Name
@@ -2972,7 +2976,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013835269032, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1000010595820442, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_Name
@@ -3083,7 +3087,7 @@ Transform:
   m_Children:
   - {fileID: 704741775}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!1 &2110359851
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,7 +3157,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013835269032, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1000010595820442, guid: 37353824966b48649866ffb3391ad468, type: 2}
       propertyPath: m_Name
