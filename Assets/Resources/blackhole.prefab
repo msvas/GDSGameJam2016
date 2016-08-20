@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014204098008}
   - 135: {fileID: 135000012897265552}
+  - 114: {fileID: 114000012389751840}
   m_Layer: 0
   m_Name: blackhole
   m_TagString: Untagged
@@ -112,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 1000012595054770}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6666666, y: 1.666668, z: 1.6666678}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000014204098008}
@@ -124,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011717864176}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 49.6, z: 0}
+  m_LocalPosition: {x: -12.24, y: 59.12, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children:
@@ -218,6 +219,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityIntensity: 10
   gravityScale: 50
+--- !u!114 &114000012389751840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011717864176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab78799f2fe085448aac1cf0be1c5c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135000012897265552
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -19,6 +19,8 @@ public class Creation : MonoBehaviour {
     public float maxRadius;
     [Range(0f, 1f)]
     public float itemChance;
+    [Range(0f, 1f)]
+    public float holeProb;
     public int planetsNumber;
     public int spaceBetweenPlanets;
 
@@ -27,8 +29,8 @@ public class Creation : MonoBehaviour {
     [SerializeField]
     private string[] prefabsNames;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         planets = new List<PlanetInfo>();
 
         for (int i = 0; i < planetsNumber; i++) {
@@ -38,6 +40,13 @@ public class Creation : MonoBehaviour {
                 coordinates = RandomCoordinates();
             }
             planets.Add(new PlanetInfo(coordinates, radius));
+
+            if (Random.Range(0, 1.0f) < holeProb) {
+                coordinates = RandomCoordinates();
+                while (PlanetsCollide(coordinates, radius)) {
+                    coordinates = RandomCoordinates();
+                }
+            }
         }
         CreatePlanets();
         //DebugPlanets();
