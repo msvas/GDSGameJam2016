@@ -106,11 +106,12 @@ public class Movement : MonoBehaviour {
 
     public void IncreaseSpeed(int scale) {
         speed = speed * scale;
-        Debug.Log("oi");
+        maxVelocity = maxVelocity * scale;
     }
 
     public void DecreaseSpeed(int scale) {
         speed = speed / scale;
+        maxVelocity = maxVelocity / scale;
     }
 
     public void NullSpeed() {
