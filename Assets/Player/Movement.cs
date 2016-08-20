@@ -18,6 +18,9 @@ public class Movement : MonoBehaviour {
 	[SerializeField]
 	private float jumpImpulse = 50.0f;
 
+	[SerializeField][Range(0.01f, 1.0f)]
+	private float friction = 0.8f;
+
 	private Player player;
 	private Rigidbody rb;
 
@@ -50,7 +53,8 @@ public class Movement : MonoBehaviour {
 
 			if (horizontal != 0 || vertical != 0)
 				MoveInSpace(new Vector2(horizontal, vertical));
-			
+			else
+				rb.velocity *= friction;
 		}
 	}
 

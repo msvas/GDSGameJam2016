@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public float bonusInterval = 5;
 
     private Movement movement;
+	private Rigidbody rb;
 
 	public bool isGrounded {
 		get { return grounded; }
@@ -25,12 +26,15 @@ public class Player : MonoBehaviour {
 	
 	void Start () {
         movement = GetComponent<Movement>();
-
+		rb = GetComponent<Rigidbody>();
     }
 	
 	void Update () {
 		if (grounded) {
-			transform.up = (transform.position - planetCenter).normalized;
+			//transform.up = (transform.position - planetCenter).normalized;
+			Vector3 down = (planetCenter - transform.position).normalized;
+			Vector3 forward = Vector3.Cross(transform.right, down);
+			transform.rotation = Quaternion.LookRotation(-forward, -down);
 		}
 
         if(hasBonus) {
@@ -46,6 +50,7 @@ public class Player : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer("Planet")) {
 			grounded = true;
 			planetCenter = other.transform.position;
+			rb.velocity = Vector3.zero;
 		}
 	}
 
