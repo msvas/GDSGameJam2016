@@ -128,6 +128,9 @@ MonoBehaviour:
   - Planet_BeachGeiser
   - Planet_Earthy
   - Planet_WaterSand
+  - Planet_Checkers
+  - Planet_Watery
+  - Planet_Energy
 --- !u!4 &474273008
 Transform:
   m_ObjectHideFlags: 0
@@ -328,7 +331,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1498407685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -41.6}
+  m_LocalPosition: {x: 0, y: 1, z: -29.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
