@@ -17,11 +17,14 @@ public class FinishLine : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Player")) {
 			// Player has reached the end
-			Player p = other.gameObject.GetComponent<Player>();
-			UI_Finish.Finish(p.GetIndex());
+			Player player = other.gameObject.GetComponent<Player>();
+			UI_Finish.Finish(player.GetIndex());
 
-			other.gameObject.GetComponent<Movement>().enabled = false;
-			other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			Player[] ps = FindObjectsOfType<Player>();
+			foreach (Player p in ps) {
+				p.gameObject.GetComponent<Movement>().enabled = false;
+				p.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			}
 		}
 	}
 }
