@@ -38,6 +38,6 @@ public class UI_Finish : MonoBehaviour {
 	}
 
 	public void On_BackToMenu() {
-
+		SceneManager.LoadScene("MainMenu");
 	}
 }
