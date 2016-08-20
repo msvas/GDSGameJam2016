@@ -15,13 +15,17 @@ public class PlanetInfo {
 public class Creation : MonoBehaviour {
 
     public int maxSizeX, maxSizeY;
+
     [Range(0.5f, 1.5f)]
     public float maxRadius;
-    [Range(0f, 1f)]
+
+	[Range(0f, 1f)]
     public float itemChance;
-    [Range(0f, 1f)]
+
+	[Range(0f, 1f)]
     public float holeProb;
-    public int planetsNumber;
+
+	public int planetsNumber;
     public int spaceBetweenPlanets;
 
     private List<PlanetInfo> planets;
@@ -36,20 +40,30 @@ public class Creation : MonoBehaviour {
         for (int i = 0; i < planetsNumber; i++) {
             float radius = Random.Range(0.5f, maxRadius);
             Vector3 coordinates = RandomCoordinates();
-            while (PlanetsCollide(coordinates, radius)) {
-                coordinates = RandomCoordinates();
-            }
-            planets.Add(new PlanetInfo(coordinates, radius));
 
-            if (Random.Range(0, 1.0f) < holeProb) {
+			while (PlanetsCollide(coordinates, radius)) {
                 coordinates = RandomCoordinates();
-                while (PlanetsCollide(coordinates, 2.1f)) {
-                    coordinates = RandomCoordinates();
-                }
-                GameObject newHole = (GameObject)Instantiate(Resources.Load("blackhole"));
-                newHole.transform.position = coordinates;
             }
+
+			planets.Add(new PlanetInfo(coordinates, radius));
         }
+
+
+		List<Vector3> blackholePositions = new List<Vector3>();
+		for (int i = 0; i < planetsNumber; i++) {
+			if (Random.Range(0, 1.0f) < holeProb) {
+				Vector3 coordinates = RandomCoordinates();
+
+				while (PlanetsCollide(coordinates, 2.1f) || HolesCollide(blackholePositions, coordinates)) {
+					coordinates = RandomCoordinates();
+				}
+
+				GameObject newHole = (GameObject)Instantiate(Resources.Load("blackhole"));
+				newHole.transform.position = coordinates;
+				blackholePositions.Add(coordinates);
+			}
+		}
+
         CreatePlanets();
         //DebugPlanets();
     }
@@ -77,7 +91,21 @@ public class Creation : MonoBehaviour {
         return collides;
     }
 
-    private void CreatePlanets() {
+	private bool HolesCollide(List<Vector3> holes, Vector3 coords) {
+		bool collides = false;
+		foreach (Vector3 hole in holes) {
+			float distance = Vector3.Distance(hole, coords);
+			float minPossible = ((2.1f * 2) + spaceBetweenPlanets);
+			//Debug.Log(distance);
+			//Debug.Log(minPossible);
+			if (distance < minPossible) {
+				collides = true;
+			}
+		}
+		return collides;
+	}
+
+	private void CreatePlanets() {
         foreach (PlanetInfo planet in planets) {
             string randomPlanet = SelectPlanetPrefab();
             GameObject newPlanet = (GameObject)Instantiate(Resources.Load(randomPlanet));
