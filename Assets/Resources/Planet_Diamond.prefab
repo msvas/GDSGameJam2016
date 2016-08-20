@@ -22,6 +22,7 @@ GameObject:
   - 33: {fileID: 33000011368029564}
   - 23: {fileID: 23000013218060160}
   - 114: {fileID: 114000012436889128}
+  - 65: {fileID: 65000010609333370}
   m_Layer: 0
   m_Name: Planet_Diamond
   m_TagString: Untagged
@@ -109,6 +110,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010595820442}
   m_Mesh: {fileID: 4300000, guid: ec0f72085d2355a479d99fcc717f5def, type: 3}
+--- !u!65 &65000010609333370
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010595820442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.019999998, z: 0.012199999}
+  m_Center: {x: 0, y: 0, z: -0.0025199994}
 --- !u!114 &114000011990446796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2f40f2a581f00b479ba48c5cdc9a7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 20
 --- !u!135 &135000011458459572
 SphereCollider:
   m_ObjectHideFlags: 1

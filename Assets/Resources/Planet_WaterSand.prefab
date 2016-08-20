@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityIntensity: 10
-  gravityScale: 10
+  gravityScale: 20
 --- !u!114 &114000012586551476
 MonoBehaviour:
   m_ObjectHideFlags: 1

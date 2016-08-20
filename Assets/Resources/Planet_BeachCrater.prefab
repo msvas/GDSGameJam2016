@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityIntensity: 10
-  gravityScale: 10
+  gravityScale: 20
 --- !u!135 &135000010170636358
 SphereCollider:
   m_ObjectHideFlags: 1

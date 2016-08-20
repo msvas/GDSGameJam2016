@@ -4,6 +4,9 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	[SerializeField]
+	private int index;
+
+	[SerializeField]
 	private bool grounded;
 
     private float bonusTime;
@@ -64,7 +67,11 @@ public class Player : MonoBehaviour {
     /// <summary>
     /// Return the center of the planet the player is standing on
     /// </summary>
-    Vector3 GetPlanetCenter() {
+    public Vector3 GetPlanetCenter() {
 		return planetCenter;
+	}
+
+	public int GetIndex() {
+		return index;
 	}
 }
