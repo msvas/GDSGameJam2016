@@ -14,8 +14,17 @@ public class BlackHole : MonoBehaviour {
 	
 	}
 
-    void OnCollisionEnter(Collision coll) {
-        //Debug.Log("oi");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Player")) {
+            // Player has reached the end
+            Player player = other.gameObject.GetComponent<Player>();
+            UI_Finish.Finish(player.GetIndex());
+
+            Player[] ps = FindObjectsOfType<Player>();
+            foreach (Player p in ps) {
+                p.gameObject.GetComponent<Movement>().enabled = false;
+                p.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
+        }
     }
 }

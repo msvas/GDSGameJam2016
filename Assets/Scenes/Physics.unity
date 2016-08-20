@@ -704,7 +704,7 @@ MonoBehaviour:
   maxRadius: 1.5
   itemChance: 0.6
   holeProb: 0.4
-  planetsNumber: 50
+  planetsNumber: 120
   spaceBetweenPlanets: 10
   prefabsNames:
   - Planet_BeachCrater
