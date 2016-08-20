@@ -45,15 +45,6 @@ public class Movement : MonoBehaviour {
 				MoveClockwise(horizontal);
 			else if (horizontal > 0)
 				MoveCounterClockwise(vertical);
-
-<<<<<<< HEAD
-=======
-			if (horizontal == 0 && vertical == 0) {
-				rb.velocity *= 0.5f;
-				//rb.angularVelocity = Vector3.zero;
-			}
-
->>>>>>> flow
 		}
 		else {
 
