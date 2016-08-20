@@ -121,6 +121,7 @@ MonoBehaviour:
   maxSizeY: 100
   maxRadius: 1.5
   itemChance: 0.6
+  holeProb: 0.4
   planetsNumber: 20
   spaceBetweenPlanets: 10
   prefabsNames:

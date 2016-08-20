@@ -43,9 +43,11 @@ public class Creation : MonoBehaviour {
 
             if (Random.Range(0, 1.0f) < holeProb) {
                 coordinates = RandomCoordinates();
-                while (PlanetsCollide(coordinates, radius)) {
+                while (PlanetsCollide(coordinates, 2.1f)) {
                     coordinates = RandomCoordinates();
                 }
+                GameObject newHole = (GameObject)Instantiate(Resources.Load("blackhole"));
+                newHole.transform.position = coordinates;
             }
         }
         CreatePlanets();
