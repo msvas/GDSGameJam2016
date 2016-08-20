@@ -17,12 +17,15 @@ public class BlackHole : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             // Player has reached the end
-            Player player = other.gameObject.GetComponent<Player>();
-            UI_Finish.Finish(player.GetIndex());
+            //Player player = other.gameObject.GetComponent<Player>();
 
             Player[] ps = FindObjectsOfType<Player>();
-            foreach (Player p in ps) {
-                p.gameObject.GetComponent<Movement>().enabled = false;
+
+			foreach (Player p in ps) {
+				if (other.gameObject.GetComponent<Player>().GetIndex() != p.GetIndex())
+					UI_Finish.Finish(p.GetIndex());
+
+				p.gameObject.GetComponent<Movement>().enabled = false;
                 p.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             }
         }
