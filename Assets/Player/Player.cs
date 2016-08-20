@@ -31,7 +31,10 @@ public class Player : MonoBehaviour {
 	
 	void Update () {
 		if (grounded) {
-			transform.up = (transform.position - planetCenter).normalized;
+			//transform.up = (transform.position - planetCenter).normalized;
+			Vector3 down = (planetCenter - transform.position).normalized;
+			Vector3 forward = Vector3.Cross(transform.right, down);
+			transform.rotation = Quaternion.LookRotation(-forward, -down);
 		}
 
         if(hasBonus) {
