@@ -15,10 +15,10 @@ public class Nuts : MonoBehaviour {
         transform.RotateAround(transform.parent.position, Vector3.back, speed * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collider other) {
+    void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Player")) {
             //other.gameObject.GetComponent<Player>.ActivateNut();
-            Object.Destroy(this);
+            Object.Destroy(gameObject);
         }
     }
 }
