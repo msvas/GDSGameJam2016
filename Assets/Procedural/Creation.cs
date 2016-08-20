@@ -64,6 +64,23 @@ public class Creation : MonoBehaviour {
 			}
 		}
 
+        List<Vector3> starPositions = new List<Vector3>();
+        for (int i = 0; i < planetsNumber; i++) {
+            if (Random.Range(0, 1.0f) < holeProb) {
+                Vector3 coordinates = RandomCoordinates();
+
+                while (PlanetsCollide(coordinates, 2.1f) || 
+                       HolesCollide(blackholePositions, coordinates) ||
+                       StarsCollide(starPositions, coordinates)) {
+                    coordinates = RandomCoordinates();
+                }
+
+                GameObject newStar = (GameObject)Instantiate(Resources.Load("Stardust"));
+                newStar.transform.position = coordinates;
+                starPositions.Add(coordinates);
+            }
+        }
+
         CreatePlanets();
         //DebugPlanets();
     }
@@ -105,7 +122,21 @@ public class Creation : MonoBehaviour {
 		return collides;
 	}
 
-	private void CreatePlanets() {
+    private bool StarsCollide(List<Vector3> stars, Vector3 coords) {
+        bool collides = false;
+        foreach (Vector3 star in stars) {
+            float distance = Vector3.Distance(star, coords);
+            float minPossible = ((2.1f * 2) + spaceBetweenPlanets);
+            //Debug.Log(distance);
+            //Debug.Log(minPossible);
+            if (distance < minPossible) {
+                collides = true;
+            }
+        }
+        return collides;
+    }
+
+    private void CreatePlanets() {
         foreach (PlanetInfo planet in planets) {
             string randomPlanet = SelectPlanetPrefab();
             GameObject newPlanet = (GameObject)Instantiate(Resources.Load(randomPlanet));
