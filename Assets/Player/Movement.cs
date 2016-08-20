@@ -46,11 +46,20 @@ public class Movement : MonoBehaviour {
 			else if (horizontal > 0)
 				MoveCounterClockwise(vertical);
 
+<<<<<<< HEAD
+=======
+			if (horizontal == 0 && vertical == 0) {
+				rb.velocity *= 0.5f;
+				//rb.angularVelocity = Vector3.zero;
+			}
+
+>>>>>>> flow
 		}
 		else {
 
-			MoveInSpace(new Vector2(horizontal, vertical));
-
+			if (horizontal != 0 || vertical != 0)
+				MoveInSpace(new Vector2(horizontal, vertical));
+			
 		}
 	}
 
