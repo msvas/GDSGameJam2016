@@ -45,12 +45,12 @@ public class Movement : MonoBehaviour {
 				MoveClockwise(horizontal);
 			else if (horizontal > 0)
 				MoveCounterClockwise(vertical);
-
 		}
 		else {
 
-			MoveInSpace(new Vector2(horizontal, vertical));
-
+			if (horizontal != 0 || vertical != 0)
+				MoveInSpace(new Vector2(horizontal, vertical));
+			
 		}
 	}
 
