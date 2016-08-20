@@ -40,7 +40,7 @@ GameObject:
   - 23: {fileID: 23000011491631790}
   - 135: {fileID: 135000011072021184}
   - 114: {fileID: 114000012313432146}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Planet_Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
