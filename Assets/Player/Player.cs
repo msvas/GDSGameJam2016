@@ -44,7 +44,7 @@ public class Player : MonoBehaviour {
             bonusTime += Time.deltaTime;
             if(bonusTime > bonusInterval) {
                 hasBonus = false;
-                movement.DecreaseSpeed(4);
+                movement.DecreaseSpeed(2);
             }
         }
 
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour {
         if (!hasBonus) {
             hasBonus = true;
             bonusTime = 0;
-            movement.IncreaseSpeed(4);
+            movement.IncreaseSpeed(2);
         }
     }
 

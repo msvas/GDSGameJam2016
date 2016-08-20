@@ -13,6 +13,7 @@ public class Nuts : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.RotateAround(transform.parent.position, Vector3.forward, speed * Time.deltaTime);
+		transform.position.Set(transform.position.x, transform.position.y, 0);
     }
 
     void OnTriggerEnter(Collider other) {
