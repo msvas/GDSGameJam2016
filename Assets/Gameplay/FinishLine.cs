@@ -18,8 +18,10 @@ public class FinishLine : MonoBehaviour {
 		if (other.CompareTag("Player")) {
 			// Player has reached the end
 			Player p = other.gameObject.GetComponent<Player>();
-
 			UI_Finish.Finish(p.GetIndex());
+
+			other.gameObject.GetComponent<Movement>().enabled = false;
+			other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
 		}
 	}
 }
