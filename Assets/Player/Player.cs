@@ -15,6 +15,7 @@ public class Player : MonoBehaviour {
     public float bonusInterval = 5;
 
     private Movement movement;
+	private Rigidbody rb;
 
 	public bool isGrounded {
 		get { return grounded; }
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour {
 	
 	void Start () {
         movement = GetComponent<Movement>();
-
+		rb = GetComponent<Rigidbody>();
     }
 	
 	void Update () {
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour {
 		if (other.gameObject.layer == LayerMask.NameToLayer("Planet")) {
 			grounded = true;
 			planetCenter = other.transform.position;
+			rb.velocity = Vector3.zero;
 		}
 	}
 
