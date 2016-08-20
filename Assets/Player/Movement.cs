@@ -45,7 +45,7 @@ public class Movement : MonoBehaviour {
 				MoveClockwise(horizontal);
 			else if (horizontal > 0)
 				MoveCounterClockwise(vertical);
-			
+
 		}
 		else {
 
@@ -57,18 +57,20 @@ public class Movement : MonoBehaviour {
 	void MoveClockwise (float input) {
 		Vector3 direction = (Vector3.Cross(Vector3.forward, player.transform.up)).normalized;
 		transform.position += direction * speed * Time.deltaTime;
+		//rb.AddForce(direction * speed * Time.deltaTime);
 	}
 
 	void MoveCounterClockwise (float input) {
 		Vector3 direction = (Vector3.Cross(player.transform.up, Vector3.forward)).normalized;
 		transform.position += direction * speed * Time.deltaTime;
+		//rb.AddForce(direction * speed * Time.deltaTime);
 	}
 
 	void MoveInSpace (Vector2 input) {
 		Vector2 normalized = input.normalized;
 		Vector3 movement = new Vector3(normalized.x, normalized.y, 0.0f);
 
-		rb.AddForce(movement * speed * 10.0f * Time.deltaTime);
+		rb.AddForce(movement * speed * Time.deltaTime, ForceMode.VelocityChange);
 	}
 
 	void Jump () {
