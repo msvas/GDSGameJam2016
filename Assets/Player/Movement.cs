@@ -15,7 +15,10 @@ public class Movement : MonoBehaviour {
 	[SerializeField]
 	private float speed = 10.0f;
 
-	[SerializeField]
+    [SerializeField]
+    private float normalSpeed = 10.0f;
+
+    [SerializeField]
 	private float jumpImpulse = 50.0f;
 
 	[SerializeField][Range(0.01f, 1.0f)]
@@ -101,11 +104,20 @@ public class Movement : MonoBehaviour {
 			ForceMode.Impulse);
 	}
 
-    public void DoubleSpeed() {
-        speed = speed * 2;
+    public void IncreaseSpeed(int scale) {
+        speed = speed * scale;
+        Debug.Log("oi");
     }
 
-    public void NormalSpeed() {
-        speed = speed / 2;
+    public void DecreaseSpeed(int scale) {
+        speed = speed / scale;
+    }
+
+    public void NullSpeed() {
+        speed = 0;
+    }
+
+    public void RestoreSpeed() {
+        speed = normalSpeed;
     }
 }

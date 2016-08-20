@@ -10,9 +10,12 @@ public class Player : MonoBehaviour {
 	private bool grounded;
 
     private float bonusTime;
-    private bool hasBonus = true;
+    private float starTime;
+    private bool hasBonus = false;
+    private bool hasStardust = false;
 
     public float bonusInterval = 5;
+    public float starInterval = 5;
 
     private Movement movement;
 	private Rigidbody rb;
@@ -41,7 +44,15 @@ public class Player : MonoBehaviour {
             bonusTime += Time.deltaTime;
             if(bonusTime > bonusInterval) {
                 hasBonus = false;
-                movement.NormalSpeed();
+                movement.DecreaseSpeed(4);
+            }
+        }
+
+        if(hasStardust) {
+            starTime += Time.deltaTime;
+            if (starTime > starInterval) {
+                hasStardust = false;
+                movement.RestoreSpeed();
             }
         }
 	}
@@ -65,7 +76,15 @@ public class Player : MonoBehaviour {
         if (!hasBonus) {
             hasBonus = true;
             bonusTime = 0;
-            movement.DoubleSpeed();
+            movement.IncreaseSpeed(4);
+        }
+    }
+
+    public void ActivateStar() {
+        if (!hasBonus && !hasStardust) {
+            hasStardust = true;
+            starTime = 0;
+            movement.NullSpeed();
         }
     }
 
