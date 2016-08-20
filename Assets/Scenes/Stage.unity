@@ -123,6 +123,11 @@ MonoBehaviour:
   itemChance: 0.6
   planetsNumber: 20
   spaceBetweenPlanets: 10
+  prefabsNames:
+  - Planet_BeachCrater
+  - Planet_BeachGeiser
+  - Planet_Earthy
+  - Planet_WaterSand
 --- !u!4 &474273008
 Transform:
   m_ObjectHideFlags: 0

@@ -24,6 +24,9 @@ public class Creation : MonoBehaviour {
 
     private List<PlanetInfo> planets;
 
+    [SerializeField]
+    private string[] prefabsNames;
+
 	// Use this for initialization
 	void Start () {
         planets = new List<PlanetInfo>();
@@ -53,7 +56,7 @@ public class Creation : MonoBehaviour {
         bool collides = false;
         foreach(PlanetInfo planet in planets) {
             float distance = Vector3.Distance(planet.coordinates, checkedCoord);
-            float minPossible = ((planet.radius * 10) + (radius * 10) + spaceBetweenPlanets);
+            float minPossible = ((planet.radius * 5) + (radius * 5) + spaceBetweenPlanets);
             //Debug.Log(distance);
             //Debug.Log(minPossible);
             if (distance < minPossible) {
@@ -65,18 +68,26 @@ public class Creation : MonoBehaviour {
 
     private void CreatePlanets() {
         foreach (PlanetInfo planet in planets) {
-            GameObject newPlanet = (GameObject)Instantiate(Resources.Load("PlanetBase"));
+            string randomPlanet = SelectPlanetPrefab();
+            GameObject newPlanet = (GameObject)Instantiate(Resources.Load(randomPlanet));
             newPlanet.transform.position = planet.coordinates;
-            float newScale = (10f * planet.radius) / 0.5f;
+            float newScale = (5f * planet.radius);
             //Debug.Log(planet.radius);
             newPlanet.transform.localScale = new Vector3(newScale, newScale, newScale);
             if(Random.Range(0, 1.0f) < itemChance) {
                 float radius = 0.5f * newPlanet.transform.localScale.x;
                 GameObject newNut = (GameObject)Instantiate(Resources.Load("NutBase"));
                 newNut.transform.parent = newPlanet.transform;
-                newNut.transform.position = new Vector3(newPlanet.transform.position.x + (1.2f * radius), newPlanet.transform.position.y, newPlanet.transform.position.z);
+                newNut.transform.position = new Vector3(newPlanet.transform.position.x + (3f * radius), newPlanet.transform.position.y, newPlanet.transform.position.z);
             }
         }
+    }
+
+    private string SelectPlanetPrefab() {
+        int totalPlanets = prefabsNames.Length;
+        int randomPlanet = Random.Range(1, totalPlanets);
+
+        return prefabsNames[randomPlanet];
     }
 
     private void DebugPlanets() {
