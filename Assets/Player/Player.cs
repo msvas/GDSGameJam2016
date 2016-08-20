@@ -6,6 +6,13 @@ public class Player : MonoBehaviour {
 	[SerializeField]
 	private bool grounded;
 
+    private float bonusTime;
+    private bool hasBonus = true;
+
+    public float bonusInterval = 5;
+
+    private Movement movement;
+
 	public bool isGrounded {
 		get { return grounded; }
 		set { grounded = value; }
@@ -14,13 +21,22 @@ public class Player : MonoBehaviour {
 	private Vector3 planetCenter;
 	
 	void Start () {
-		
-	}
+        movement = GetComponent<Movement>();
+
+    }
 	
 	void Update () {
 		if (grounded) {
 			transform.up = (transform.position - planetCenter).normalized;
 		}
+
+        if(hasBonus) {
+            bonusTime += Time.deltaTime;
+            if(bonusTime > bonusInterval) {
+                hasBonus = false;
+                movement.NormalSpeed();
+            }
+        }
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -37,10 +53,18 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	/// <summary>
-	/// Return the center of the planet the player is standing on
-	/// </summary>
-	Vector3 GetPlanetCenter() {
+    public void ActivateNut() {
+        if (!hasBonus) {
+            hasBonus = true;
+            bonusTime = 0;
+            movement.DoubleSpeed();
+        }
+    }
+
+    /// <summary>
+    /// Return the center of the planet the player is standing on
+    /// </summary>
+    Vector3 GetPlanetCenter() {
 		return planetCenter;
 	}
 }

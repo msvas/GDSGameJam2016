@@ -15,7 +15,7 @@ public class BlackHole : MonoBehaviour {
 	}
 
     void OnCollisionEnter(Collision coll) {
-        Debug.Log("oi");
+        //Debug.Log("oi");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

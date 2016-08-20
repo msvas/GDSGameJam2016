@@ -78,4 +78,12 @@ public class Movement : MonoBehaviour {
 			(player.transform.up + rb.velocity).normalized * jumpImpulse * Time.deltaTime,
 			ForceMode.Impulse);
 	}
+
+    public void DoubleSpeed() {
+        speed = speed * 2;
+    }
+
+    public void NormalSpeed() {
+        speed = speed / 2;
+    }
 }
